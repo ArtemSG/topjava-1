@@ -71,7 +71,7 @@
 #### Apply 11_09_auth_user.patch
 - [Автоподстановка в контроллерах](https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#mvc-authentication-principal)
   - не стал делать автоподстановку по всем контроллерам (в абстрактных контроллерах проще работать с `SecurityUtil`, чем получать его через `@AuthenticationPrincipal` и передавать параметром)
-- [В JSP: the authentication Tag](https://docs.spring.io/spring-security/site/docs/current/reference/html/taglibs.html#the-authentication-tag)
+- [В JSP: the authentication Tag](https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#the-authentication-tag)
   - авторизованный пользователь доступен в JSP через tag `authentication`, интерсептор становится не нужным
 
 ### Ограничение модификации пользователей
@@ -84,6 +84,10 @@
 
 ###  ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png)  <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFZkpVM19QWFBOQ2c">3. Деплой приложения в Heroku.</a>
 #### Apply 11_11_heroku.patch
+### *Внимание*: 
+  - проверьте, что в `hr.bat` запускается java 11 (`java -version`)
+  - проверьте, что `mvn` у вас есть в path (или вставьте в `hr.bat` путь к maven)
+  
 > - Добавил зависимости `postgres` в профиль мавена `heroku`
 > - [Поменял настройки `dataSource` для профиля `heroku`](http://stackoverflow.com/questions/10684244/dbcp-validationquery-for-different-databases). 
 При опускании/поднятии приложения в heroku.com портятся коннекты в пуле и необходимо их валидировать. 
